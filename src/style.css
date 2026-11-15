@@ -1,10 +1,7 @@
 :root {
-  --bg-stripe: #d6d0cd;
-  --bg-gap: #efe9e2;
+  --bg: #efe9e2;
   --ink: #0f1a45;
   --line: #2b2b2b;
-  --stripe-w: 5.7vw;
-  --stripe-gap: 1.7vw;
   --pad-x: 5.4vw;
 }
 
@@ -21,16 +18,7 @@ body {
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--ink);
-  background-color: var(--bg-gap);
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--bg-stripe) 0,
-    var(--bg-stripe) var(--stripe-w),
-    var(--bg-gap) var(--stripe-w),
-    var(--bg-gap) calc(var(--stripe-w) + var(--stripe-gap))
-  );
-  background-position: var(--pad-x) 0;
-  background-attachment: fixed;
+  background-color: var(--bg);
 }
 
 .page {
@@ -91,7 +79,7 @@ body {
 .pill:hover,
 .pill:focus-visible {
   background: var(--ink);
-  color: var(--bg-gap);
+  color: var(--bg);
   outline: none;
 }
 
@@ -197,23 +185,6 @@ body {
   position: relative;
 }
 
-/* Stripes from the page background show through the photo */
-.hero__photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent 0,
-    transparent var(--stripe-w),
-    rgba(239, 233, 226, 0.14) var(--stripe-w),
-    rgba(239, 233, 226, 0.14) calc(var(--stripe-w) + var(--stripe-gap))
-  );
-  background-position: var(--pad-x) 0;
-  background-attachment: fixed;
-}
-
 .hero__photo img {
   position: absolute;
   inset: 0;
@@ -227,7 +198,6 @@ body {
 @media (max-width: 800px) {
   :root {
     --pad-x: 16px;
-    --stripe-w: 36px;
   }
 
   .hero {
