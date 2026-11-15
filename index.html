@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M. Pshenychnyi — UI/UX Designer</title>
+    <meta
+      name="description"
+      content="UI/UX Designer. Роблю сайти для локального бізнесу, після яких відвідувач записується, дзвонить або приходить."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <a class="logo" href="/" aria-label="M. Pshenychnyi">M. Pshenychnyi</a>
+        <nav class="nav" aria-label="Головна навігація">
+          <a class="pill" href="#cases" data-i18n="nav.cases">Кейси</a>
+          <a class="pill" href="#about" data-i18n="nav.about">Про мене</a>
+          <a class="pill" href="#contacts" data-i18n="nav.contacts">Контакти</a>
+          <a class="pill pill--filled" href="#contacts" data-i18n="nav.write">Написати</a>
+        </nav>
+        <div class="lang" role="group" aria-label="Мова / Language">
+          <button class="lang__btn is-active" type="button" data-lang="uk">UA</button>
+          <button class="lang__btn" type="button" data-lang="en">EN</button>
+        </div>
+      </header>
+
+      <main class="hero">
+        <div class="hero__text">
+          <h1 class="hero__title">UI/UX Designer</h1>
+          <p class="hero__lead" data-i18n="hero.lead">
+            Роблю сайти для локального бізнесу, після яких відвідувач записується, дзвонить або приходить.
+          </p>
+          <div class="hero__actions">
+            <a class="pill pill--filled" href="#contacts" data-i18n="hero.contact">Зв'язатися зі мною</a>
+            <a class="pill" href="#cases" data-i18n="hero.cases">Дивись кейси</a>
+          </div>
+        </div>
+        <figure class="hero__photo">
+          <img src="/photo.jpg" alt="Портрет Михайла" width="600" height="800" />
+        </figure>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
