@@ -169,11 +169,16 @@ body {
 .hero__actions {
   display: inline-grid;
   grid-auto-flow: column;
-  grid-auto-columns: 1fr; /* both buttons take the width of the wider one */
+  grid-auto-columns: 256px;
+  grid-auto-rows: 52px;
   gap: 16px;
 }
 
+/* Fixed 256x52 so the size never changes with the language */
 .hero__actions .pill {
+  width: 256px;
+  height: 52px;
+  padding: 0;
   white-space: nowrap;
 }
 
@@ -234,6 +239,11 @@ body {
 
   .nav .pill {
     min-width: 0;
+  }
+
+  /* Two 256px buttons do not fit side by side on a phone */
+  .hero__actions {
+    grid-auto-flow: row;
   }
 
   .hero__photo {
