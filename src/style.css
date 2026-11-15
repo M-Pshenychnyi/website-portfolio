@@ -51,12 +51,14 @@ body {
 }
 
 .logo {
-  font-family: "Mrs Saint Delafield", cursive;
-  font-size: 44px;
-  line-height: 1;
-  color: var(--ink);
-  text-decoration: none;
-  white-space: nowrap;
+  display: block;
+  width: clamp(110px, 17.5vw, 260px);
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .nav {
