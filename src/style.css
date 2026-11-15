@@ -79,7 +79,8 @@ body {
   border: 1px solid var(--line);
   border-radius: 999px;
   font: inherit;
-  font-size: 13px;
+  font-size: 24px;
+  font-weight: 400;
   color: var(--ink);
   text-decoration: none;
   background: transparent;
@@ -127,7 +128,8 @@ body {
 .lang__btn {
   position: relative;
   font: inherit;
-  font-size: 13px;
+  font-size: 24px;
+  font-weight: 400;
   padding: 7px 14px;
   color: var(--ink);
   background: transparent;
@@ -183,7 +185,7 @@ body {
 }
 
 .hero__actions .pill {
-  font-size: 14px;
+  font-size: 24px;
   padding: 8px 18px;
 }
 
