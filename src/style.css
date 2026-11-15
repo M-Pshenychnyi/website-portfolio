@@ -99,13 +99,33 @@ body {
 }
 
 .lang {
-  display: inline-flex;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
   border: 1px solid var(--line);
   border-radius: 999px;
   overflow: hidden;
 }
 
+/* Sliding fill: sits under UA by default, moves under EN */
+.lang::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  border-radius: 999px;
+  background: rgba(15, 26, 69, 0.15);
+  transition: transform 0.25s ease;
+}
+
+.lang[data-lang="en"]::before {
+  transform: translateX(100%);
+}
+
 .lang__btn {
+  position: relative;
   font: inherit;
   font-size: 13px;
   padding: 7px 14px;
@@ -113,11 +133,6 @@ body {
   background: transparent;
   border: 0;
   cursor: pointer;
-}
-
-.lang__btn.is-active {
-  background: rgba(15, 26, 69, 0.15);
-  border-radius: 999px;
 }
 
 /* Hero */
@@ -152,9 +167,14 @@ body {
 }
 
 .hero__actions {
-  display: flex;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr; /* both buttons take the width of the wider one */
   gap: 16px;
-  flex-wrap: wrap;
+}
+
+.hero__actions .pill {
+  white-space: nowrap;
 }
 
 .hero__actions .pill {

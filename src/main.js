@@ -27,8 +27,9 @@ function applyLang(lang) {
     const value = dict[lang][el.dataset.i18n];
     if (value) el.textContent = value;
   });
+  document.querySelector(".lang").dataset.lang = lang;
   document.querySelectorAll(".lang__btn").forEach((btn) => {
-    btn.classList.toggle("is-active", btn.dataset.lang === lang);
+    btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
   });
   try {
     localStorage.setItem("lang", lang);
