@@ -3,9 +3,9 @@
   --bg-gap: #efe9e2;
   --ink: #0f1a45;
   --line: #2b2b2b;
-  --stripe-w: 52px;
-  --stripe-gap: 12px;
-  --pad-x: 40px;
+  --stripe-w: 5.7vw;
+  --stripe-gap: 1.7vw;
+  --pad-x: 5.4vw;
 }
 
 * {
@@ -46,7 +46,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-top: 18px;
+  padding-top: 15px;
   flex-wrap: wrap;
 }
 
@@ -61,15 +61,19 @@ body {
 
 .nav {
   display: flex;
-  gap: clamp(12px, 4vw, 56px);
+  gap: 4.8vw;
   flex-wrap: wrap;
+}
+
+.nav .pill {
+  min-width: 9.4vw;
 }
 
 .pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 14px;
+  padding: 5px 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
   font: inherit;
@@ -119,9 +123,10 @@ body {
   flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px;
+  gap: 0;
   align-items: center;
-  margin-top: 8px;
+  align-content: start;
+  margin-top: 3px;
 }
 
 .hero__text {
@@ -130,16 +135,16 @@ body {
 
 .hero__title {
   margin: 0 0 28px;
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(26px, 4.3vw, 64px);
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
 .hero__lead {
-  margin: 0 0 40px;
+  margin: 0 0 3.8vw;
   max-width: 24em;
-  font-size: clamp(16px, 1.6vw, 22px);
+  font-size: clamp(15px, 2.3vw, 30px);
   line-height: 1.45;
   font-weight: 500;
 }
@@ -157,11 +162,27 @@ body {
 
 .hero__photo {
   margin: 0;
-  align-self: stretch;
-  min-height: 420px;
+  aspect-ratio: 3 / 4;
   background: #4a4a4a;
   overflow: hidden;
   position: relative;
+}
+
+/* Stripes from the page background show through the photo */
+.hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent var(--stripe-w),
+    rgba(239, 233, 226, 0.14) var(--stripe-w),
+    rgba(239, 233, 226, 0.14) calc(var(--stripe-w) + var(--stripe-gap))
+  );
+  background-position: var(--pad-x) 0;
+  background-attachment: fixed;
 }
 
 .hero__photo img {
@@ -189,8 +210,11 @@ body {
     padding-right: 0;
   }
 
+  .nav .pill {
+    min-width: 0;
+  }
+
   .hero__photo {
-    min-height: 320px;
-    aspect-ratio: 3 / 4;
+    max-width: 420px;
   }
 }
